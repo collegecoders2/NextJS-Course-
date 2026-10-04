@@ -1,0 +1,146 @@
+COMPONENT
+JSX
+
+static 
+dynamic
+
+BASIC ROUTING IN NEXT JS
+/ 
+/about
+/contact
+/services
+
+NESTED ROUTES
+
+/dashboard          - basic route
+/dashboard/settings - nested route
+/dashboard/profile  - nested route
+
+
+
+
+
+
+
+
+--------------------------------------
+
+--------------------------------------
+
+DYNAMIC ROUTES
+
+/products    - basic route 
+
+    list of products
+    - product 1
+    - product 2
+    - product 3 ...
+
+/products/id - detailed page
+
+/products/1  - product 1 detailed page
+/products/2  - product 2 detailed page 
+/products/3  - product 3 detailed page 
+
+
+
+
+app/
+├── products/
+│   ├── page.tsx
+│   └── [id]/
+│       └── page.tsx
+
+
+
+/products/[id]
+       ↑
+    dynamic
+
+
+/products/25
+         ↑
+      id = 25
+
+
+/products/25
+       │
+       ↓
+     [id]
+       │
+       ↓
+    params
+       │
+       ↓
+{ id: "25" }
+
+
+
+The current Next.js API provides params as a Promise:
+
+params
+   ↓
+Promise
+   ↓ await
+{ id: "25" }
+
+--------------------------------------------------------
+
+DYNAMIC ROUTES IN PRACTICAL
+
+-------------------------------------------------------
+
+app/
+├── students/
+│   ├── page.tsx
+│   └── [id]/
+│       └── page.tsx
+│
+└── data/
+    └── students.ts
+
+
+export const students = [
+  {
+    id: 1,
+    name: "Rohit",
+    age: 21,
+    course: "B.Tech CSE",
+    college: "ABC Engineering College",
+  },
+  {
+    id: 2,
+    name: "Priya",
+    age: 20,
+    course: "B.Tech IT",
+    college: "XYZ University",
+  },
+  {
+    id: 3,
+    name: "Kiran",
+    age: 22,
+    course: "B.Tech AI",
+    college: "ABC Engineering College",
+  },
+  {
+    id: 4,
+    name: "Sneha",
+    age: 21,
+    course: "B.Tech CSE",
+    college: "XYZ University",
+  },
+];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
